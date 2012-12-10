@@ -64,7 +64,8 @@ module TT_SOSI
 			next if match.nil?
 			code = match[0]
 			descriptions, themes = layers[code]
-			layer.name = "#{code} - #{descriptions.to_a.join(', ')} (#{themes.to_a.join})"
+      layer_name = "#{code} - #{descriptions.to_a.join(', ')} (#{themes.to_a.join})"
+			layer.name = model.layers.unique_name( layer_name )
 		}
 		
 		model.commit_operation
